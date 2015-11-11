@@ -18,7 +18,7 @@
 			width="260px" height="390px" />		
 		<img tal:condition="python: elev[3] == ''" 
 			src="dummy.png" alt="bilde" />
-		 <h1 tal:content="python: elev[1]" />
+		 <h1 tal:content="python: elev[1][0]" />
 		 <h3 tal:content="python: elev[0]" />
 	</div>
 	
