@@ -1,0 +1,4 @@
+<layers>
+    <layer name="medialog.birthday" 
+           interface="medialog.birthday.interfaces.IBirthdayLayer" />
+</layers>

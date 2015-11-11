@@ -1,0 +1,13 @@
+Changelog
+=========
+
+
+0.2dev 
+-------------------
+- Use image widget only for iLoadImage, since images within datagridfield  breaks the site.  [espenmn]
+
+
+0.1dev 
+-------------------
+- Package created [espenmn]
+
