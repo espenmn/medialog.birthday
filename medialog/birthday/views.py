@@ -9,7 +9,7 @@ from zope.schema import getFields
 from datetime import date
 
 import StringIO
-import csv 
+import unicodecsv as csv
 
 
 class IBirthday(Interface):
@@ -36,12 +36,13 @@ class Birthday(BrowserView):
         # Read the CSV file
         f = StringIO.StringIO((self.context.bursdag))
         file = f.read()
-        csv_reader = csv.reader(file.splitlines(), delimiter=';' )
+        csv_reader = csv.reader(file.splitlines(), encoding='latin-1', delimiter=';' )
         
         bursdager = []
         
         for i in csv_reader: 
             if i[4].startswith(daymonth):
+                
                 #[x.encode('utf-8') for x in i]
                 bursdager.append(i)
         
