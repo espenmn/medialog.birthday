@@ -42,8 +42,9 @@ class Birthday(BrowserView):
         
         for i in csv_reader: 
             if i[4].startswith(daymonth):
-                #i.encode('utf-8')
+                [x.encode('utf-8') for x in i]
                 bursdager.append(i)
+                bursdager.appen(x)
         
         return bursdager
 
