@@ -9,7 +9,7 @@ from zope.schema import getFields
 from datetime import date
 
 import StringIO
-import csv, codecs
+import csv 
 
 
 class IBirthday(Interface):
@@ -42,9 +42,8 @@ class Birthday(BrowserView):
         
         for i in csv_reader: 
             if i[4].startswith(daymonth):
-                [x.encode('utf-8') for x in i]
+                #[x.encode('utf-8') for x in i]
                 bursdager.append(i)
-                bursdager.appen(x)
         
         return bursdager
 

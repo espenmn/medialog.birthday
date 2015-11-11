@@ -29,6 +29,7 @@ setup(name='medialog.birthday',
       include_package_data=True,
       zip_safe=False,
       install_requires=[
+      	'unicodecsv',
           # -*- Extra requirements: -*-
       ],
       entry_points="""
