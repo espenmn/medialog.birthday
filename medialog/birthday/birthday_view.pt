@@ -16,7 +16,7 @@
 		
 		 <div tal:repeat="elev has_birthday" class="elev">
  
-				<img src=""  tal:attributes="src python:elev[3]"
+				<img src=""  tal:attributes="src python:elev[3].lower()"
 					tal:condition="python: elev[3] != ''" 
 					width="260px" height="390px" />
 					
