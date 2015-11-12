@@ -18,11 +18,9 @@ class Birthday(BrowserView):
     browser view
     """
     
-    @property
     def date(self):
         return date.today().strftime("%d.%m.%Y")
     
-    @property
     def has_birthday(self):
 
         daymonth = date.today().strftime("%d.%m")
