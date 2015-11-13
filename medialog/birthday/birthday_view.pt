@@ -18,8 +18,7 @@
 		<img src="" tal:attributes="src python:elev[3].lower()"
 			tal:condition="python: elev[3] != ''" 
 			width="260px" height="390px" />		
-		<img tal:define="bilde python: elev[3]" 
-				tal:condition="exist: context/?bilde" 
+		<img tal:condition="python: elev[3] == ''" 
 			src="dummy.png" alt="bilde" />
 		 <h1 tal:content="python: elev[1].split(' ')[0]" />
 		 <h3 tal:content="python: elev[0]" />
