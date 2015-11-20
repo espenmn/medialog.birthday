@@ -18,9 +18,12 @@ class Birthday(BrowserView):
     browser view
     """
     
-    def date(self):
-        return date.today().strftime("%d.%m.%Y")
+    def date(self, dato=None):
+        if 'dato' in self.request:
+            return self.request.get('dato')
     
+        return date.today().strftime("%d.%m.%Y")
+        
     def has_birthday(self, dato=None):
 
         daymonth = date.today().strftime("%d.%m")
