@@ -21,10 +21,13 @@ class Birthday(BrowserView):
     def date(self):
         return date.today().strftime("%d.%m.%Y")
     
-    def has_birthday(self):
+    def has_birthday(self, dato=None):
 
         daymonth = date.today().strftime("%d.%m")
-        
+
+        if 'dato' in self.request:
+            daymonth = self.request.get('dato')
+                    
         # Read the CSV file
         f = StringIO.StringIO((self.context.bursdag))
         file = f.read()
