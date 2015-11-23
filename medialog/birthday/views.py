@@ -4,7 +4,7 @@ from zope.interface import implements, Interface
 from Products.Five import BrowserView
 from plone.dexterity.utils import iterSchemata
 from zope.schema import getFields
-from datetime import date
+from datetime import date,  timedelta
 import StringIO
 import unicodecsv as csv
 
@@ -22,14 +22,30 @@ class Birthday(BrowserView):
         if 'dato' in self.request:
             return self.request.get('dato')
     
-        return date.today().strftime("%d.%m.%Y")
+        dag = date.today().strftime("%d.%m")
+        
+        if date.today().weekday == 5:
+            dag += ' , ' + (date.today() + timedelta(days=1)).strftime("%d.%m")
+            dag += ' og ' + (date.today() + timedelta(days=2)).strftime("%d.%m")
+        
+        return dag
+        
+    def tomorrow(self):
+        return (date.today() + timedelta(days=1)).strftime("%d.%m")
+    
+    def aftertomorrow(self):
+        return (date.today() + timedelta(days=2)).strftime("%d.%m")
         
     def has_birthday(self, dato=None):
 
-        daymonth = date.today().strftime("%d.%m")
+        daymonth = [date.today().strftime("%d.%m")]
+        
+        if date.today().weekday == 5:
+            daymont.append(tomorrow())
+            daymont.append(aftertomorrow())
 
         if 'dato' in self.request:
-            daymonth = self.request.get('dato')
+            daymonth = [self.request.get('dato')]
                     
         # Read the CSV file
         f = StringIO.StringIO((self.context.bursdag))
@@ -38,8 +54,10 @@ class Birthday(BrowserView):
         bursdager = []
         
         for i in csv_reader: 
-            if i[4].startswith(daymonth):
+            if i[4] in daymonth:
                 bursdager.append(i)
+                
+        
         
         return bursdager
 
