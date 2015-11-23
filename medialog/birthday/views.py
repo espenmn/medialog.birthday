@@ -40,6 +40,8 @@ class Birthday(BrowserView):
 
         daymonth = [date.today().strftime("%d.%m")]
         
+        import pdb; pdb.set_trace()
+        
         if date.today().weekday == 5:
             daymont.append(tomorrow())
             daymont.append(aftertomorrow())
