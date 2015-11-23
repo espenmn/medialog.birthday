@@ -24,7 +24,7 @@ class Birthday(BrowserView):
     
         dag = date.today().strftime("%d.%m")
         
-        if date.today().weekday() == 5:
+        if date.today().weekday() == 4:
             dag += ' , ' + (date.today() + timedelta(days=1)).strftime("%d.%m")
             dag += ' og ' + (date.today() + timedelta(days=2)).strftime("%d.%m")
         
@@ -40,7 +40,7 @@ class Birthday(BrowserView):
 
         daymonth = [date.today().strftime("%d.%m")]
         
-        if date.today().weekday() == 0:
+        if date.today().weekday() == 4:
             daymonth.append(self.tomorrow())
             daymonth.append(self.aftertomorrow())
 
