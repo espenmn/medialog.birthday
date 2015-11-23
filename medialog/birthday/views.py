@@ -40,11 +40,9 @@ class Birthday(BrowserView):
 
         daymonth = [date.today().strftime("%d.%m")]
         
-        import pdb; pdb.set_trace()
-        
         if date.today().weekday() == 0:
-            daymont.append(tomorrow())
-            daymont.append(aftertomorrow())
+            daymonth.append(self.tomorrow())
+            daymonth.append(self.aftertomorrow())
 
         if 'dato' in self.request:
             daymonth = [self.request.get('dato')]
@@ -56,7 +54,7 @@ class Birthday(BrowserView):
         bursdager = []
         
         for i in csv_reader: 
-            if (i[4][0:5]) in daymonth:
+            if i[4][0:5] in daymonth:
                 bursdager.append(i)
                 
         
