@@ -40,7 +40,7 @@ class Birthday(BrowserView):
 
         daymonth = [date.today().strftime("%d.%m")]
         
-        if date.today().weekday == 5:
+        if date.today().weekday == 4:
             daymont.append(tomorrow())
             daymont.append(aftertomorrow())
 
@@ -54,7 +54,7 @@ class Birthday(BrowserView):
         bursdager = []
         
         for i in csv_reader: 
-            if i[4][0:5] in daymonth:
+            if (i[4][0:5]) in daymonth:
                 bursdager.append(i)
                 
         
