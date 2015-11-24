@@ -23,6 +23,10 @@ class Birthday(BrowserView):
             return self.request.get('dato')
     
         return date.today().strftime("%d.%m")
+
+    def dayofweek(self):
+        return date.today().weekday()
+        
         
     def friday(self):
         #warning weekday is different on different setup 
