@@ -52,8 +52,8 @@
 <script>
 $(document).ready(function() {  
     var continuous = function () {
-        $("#today").fadeToggle(400);
-        $("#weekend").fadeToggle(400);   
+        $("#today").fadeToggle(0);
+        $("#weekend").fadeToggle(0);   
     };
     $("#weekend").hide();
     setInterval(continuous,10000); 

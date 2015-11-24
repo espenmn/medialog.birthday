@@ -25,6 +25,8 @@ class Birthday(BrowserView):
         return date.today().strftime("%d.%m")
         
     def friday(self):
+        #warning weekday is different on different setup 
+        # here , friday is 5
         return date.today().weekday() == 2 
         
     def weekend(self):
