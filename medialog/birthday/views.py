@@ -22,13 +22,14 @@ class Birthday(BrowserView):
         if 'dato' in self.request:
             return self.request.get('dato')
     
-        dag = date.today().strftime("%d.%m")
+        return date.today().strftime("%d.%m")
         
-        if date.today().weekday() == 4:
-            dag += ' , ' + (date.today() + timedelta(days=1)).strftime("%d.%m")
-            dag += ' og ' + (date.today() + timedelta(days=2)).strftime("%d.%m")
+    def friday(self):
+        return date.today().weekday() == 1 
         
-        return dag
+    def weekend(self):
+        return (self.tomorrow() + ' & ' + self.aftertomorrow())
+        return days
         
     def tomorrow(self):
         return (date.today() + timedelta(days=1)).strftime("%d.%m")
@@ -36,28 +37,40 @@ class Birthday(BrowserView):
     def aftertomorrow(self):
         return (date.today() + timedelta(days=2)).strftime("%d.%m")
         
+        
     def has_birthday(self, dato=None):
 
-        daymonth = [date.today().strftime("%d.%m")]
+        daymonth = self.date()
         
-        if date.today().weekday() == 4:
-            daymonth.append(self.tomorrow())
-            daymonth.append(self.aftertomorrow())
-
-        if 'dato' in self.request:
-            daymonth = [self.request.get('dato')]
                     
         # Read the CSV file
         f = StringIO.StringIO((self.context.bursdag))
         file = f.read()
         csv_reader = csv.reader(file.splitlines(), encoding='latin-1', delimiter=';' )
         bursdager = []
+        saturday = []
+        sunday = []
         
-        for i in csv_reader: 
-            if i[4][0:5] in daymonth:
-                bursdager.append(i)
+        if 'dato' in self.request:
+            daymonth = self.request.get('dato')
+            
+            for i in csv_reader: 
+                if i[4][0:5] == daymonth:
+                    bursdager.append(i)
+        
+            return bursdager, saturday, sunday
                 
         
+        for i in csv_reader: 
+            if i[4][0:5] == daymonth:
+                bursdager.append(i)
         
-        return bursdager
+            if self.friday():
+                if i[4][0:5] == self.tomorrow():
+                    saturday.append(i)
+                if i[4][0:5] == self.aftertomorrow():
+                    sunday.append(i)
+
+        
+        return bursdager, saturday, sunday
 
