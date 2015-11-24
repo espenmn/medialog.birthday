@@ -27,6 +27,8 @@
 		</div>
 	</div>
 	
+	<div
+	
 	<div id="weekend" tal:condition="view/friday" style="display: none">
 		<h1 class="red">Gratulerer med dagen - <span tal:content="view/weekend" /></h1>
 		<div tal:repeat="elev python:has_birthday[1]" class="elev">
@@ -47,9 +49,7 @@
 			 <h1 tal:content="python: elev[1].split(' ')[0]" />
 			 <h3 tal:content="python: elev[0]" />
 		</div>
-	</div>
-
-<script>
+	<script>
 $(document).ready(function() {  
     var continuous = function () {
         $("#today").fadeToggle(0);
@@ -59,6 +59,10 @@ $(document).ready(function() {
     setInterval(continuous,20000); 
 });
 </script>
+	
+	</div>
+
+
 
   </metal:content-core>
   
