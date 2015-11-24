@@ -27,8 +27,6 @@
 		</div>
 	</div>
 	
-	<div tal:content="view/dayofweek" />
-	
 	<div id="weekend" tal:condition="view/friday" style="display: none">
 		<h1 class="red">Gratulerer med dagen - <span tal:content="view/weekend" /></h1>
 		<div tal:repeat="elev python:has_birthday[1]" class="elev">
