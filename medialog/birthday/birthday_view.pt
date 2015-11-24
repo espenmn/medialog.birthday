@@ -56,7 +56,7 @@ $(document).ready(function() {
         $("#weekend").fadeToggle(0);   
     };
     $("#weekend").hide();
-    setInterval(continuous,10000); 
+    setInterval(continuous,20000); 
 });
 </script>
 
