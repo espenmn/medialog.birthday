@@ -66,12 +66,9 @@ class Birthday(BrowserView):
         if 'end' in self.request:
             end = self.request.get('end')
             
-        
         st = datetime.strptime(start, "%d.%m")
         en = datetime.strptime(end, "%d.%m")
                     
-        import pdb; pdb.set_trace()
-        
         for i in csv_reader: 
             bdate = (i[4][0:5])
             mydate = datetime.strptime(bdate, "%d.%m")
