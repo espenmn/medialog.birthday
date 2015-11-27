@@ -4,7 +4,7 @@ from zope.interface import implements, Interface
 from Products.Five import BrowserView
 from plone.dexterity.utils import iterSchemata
 from zope.schema import getFields
-from datetime import date,  timedelta
+from datetime import date,  timedelta, datetime
 import StringIO
 import unicodecsv as csv
 
@@ -44,6 +44,45 @@ class Birthday(BrowserView):
         return (date.today() + timedelta(days=2)).strftime("%d.%m")
         
         
+    def between(self, startdate, enddate, mydate):
+        st = datetime.strptime(startdate, "%d.%m")
+        en = datetime.strptime(enddate, "%d.%m")
+        mydate = datetime.strptime(mydate, "%d.%m")
+
+        return ( st < mydate < en )
+        
+    def birthday_between(self, start=None, end=None):
+
+        f = StringIO.StringIO((self.context.bursdag))
+        file = f.read()
+        csv_reader = csv.reader(file.splitlines(), encoding='latin-1', delimiter=';' )
+        bursdager = []
+        start= '01.01'
+        end = '31.12'
+        
+        if 'start' in self.request:
+            start = self.request.get('start')
+            
+        if 'end' in self.request:
+            end = self.request.get('end')
+            
+        import pdb; pdb.set_trace()
+        
+        st = datetime.strptime(start, "%d.%m")
+        en = datetime.strptime(end, "%d.%m")
+                    
+        import pdb; pdb.set_trace()
+        
+        for i in csv_reader: 
+            bdate = (i[4][0:5])
+            mydate = datetime.strptime(bdate, "%d.%m")
+
+            if st <= mydate  <= en:
+                bursdager.append(i)
+        
+            return bursdager
+                
+
     def has_birthday(self, dato=None):
 
         daymonth = self.date()

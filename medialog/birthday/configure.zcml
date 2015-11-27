@@ -46,6 +46,14 @@
       permission="zope.Public"
       />
 
+  <browser:page
+      for="*"
+      name="between_view"
+      class="medialog.birthday.views.Birthday"
+      template="between_view.pt"
+      layer="medialog.birthday.interfaces.IBirthdayLayer"
+      permission="zope.Public"
+      />
 
   <browser:page
       for="*"
