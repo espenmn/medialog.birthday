@@ -30,6 +30,25 @@
 
   <browser:page
       for="*"
+      name="weekend_view"
+      class="medialog.birthday.views.Birthday"
+      template="weekend_view.pt"
+      layer="medialog.birthday.interfaces.IBirthdayLayer"
+      permission="zope.Public"
+      />
+
+  <browser:page
+      for="*"
+      name="weekend_view_small"
+      class="medialog.birthday.views.Birthday"
+      template="weekend_view_small.pt"
+      layer="medialog.birthday.interfaces.IBirthdayLayer"
+      permission="zope.Public"
+      />
+
+
+  <browser:page
+      for="*"
       name="birthday_view_small"
       class="medialog.birthday.views.Birthday"
       template="birthday_view_small.pt"

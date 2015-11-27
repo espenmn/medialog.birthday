@@ -8,24 +8,9 @@
 <body>
 
 <metal:main fill-slot="content" tal:define="has_birthday view/has_birthday">
-	<h1 class="red" tal:condition="not:has_birthday">Ingen elever har bursdag i dag</h1>
-	
-	
-  <metal:content-core define-macro="content-core" tal:condition="has_birthday" >
-	<div id="today">
-		<h1 class="red">Gratulerer med dagen - <span tal:content="view/date" /></h1>
 
-		<div tal:repeat="elev python:has_birthday[0]" class="elev">
-			<img src="" tal:attributes="src python:elev[3].lower()"
-				tal:condition="python: elev[3] != ''" 
-				width="260px" height="390px"  />		
-			<img tal:condition="python: elev[3] == ''" 
-				src="dummy.png" alt="bilde" />
-			 <h1 tal:content="python: elev[1].split(' ')[0]" />
-			 <h3 tal:content="python: elev[0]" />
-		</div>
-	</div>
-	
+  <metal:content-core define-macro="content-core" tal:condition="has_birthday" >
+
 	<div id="weekend" tal:condition="view/friday" style="display: none">
 		<h1 class="red">Gratulerer med dagen - <span tal:content="view/weekend" /></h1>
 		<div tal:repeat="elev python:has_birthday[1]" class="elev">
@@ -46,25 +31,9 @@
 			 <h1 tal:content="python: elev[1].split(' ')[0]" />
 			 <h3 tal:content="python: elev[0]" />
 		</div>
-	<script>
-$(document).ready(function() {  
-    var continuous = function () {
-        $("#today").fadeToggle(0);
-        $("#weekend").fadeToggle(0);   
-    };
-    $("#weekend").hide();
-    setInterval(continuous,11000); 
-});
-</script>
-	
 	</div>
-
-
-
   </metal:content-core>
   
-
-
 </metal:main>
 
 </body>
