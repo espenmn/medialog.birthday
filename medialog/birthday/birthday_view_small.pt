@@ -14,14 +14,14 @@
 
 	<h1 class="red">Gratulerer med dagen - <span tal:content="view/date" /></h1>
 	
-	<div tal:repeat="elev has_birthday" class="elev">
-		<img src="" tal:attributes="src python:elev[3].lower()"
-			tal:condition="python: elev[3] != ''" 
-			 />		
-		<img tal:condition="python: elev[3] == ''" 
-			src="dummy.png" alt="bilde" />
-		 <h1 tal:content="python: elev[1].split(' ')[0]" />
-		 <h3 tal:content="python: elev[0]" />
+	<div tal:repeat="elev python:has_birthday[0]" class="elev">
+			<img src="" tal:attributes="src python:elev[3].lower()"
+				tal:condition="python: elev[3] != ''" 
+				width="260px" height="390px"  />		
+			<img tal:condition="python: elev[3] == ''" 
+				src="dummy.png" alt="bilde" />
+			 <h1 tal:content="python: elev[1].split(' ')[0]" />
+			 <h3 tal:content="python: elev[0]" />
 	</div>
 	
   </metal:content-core>
