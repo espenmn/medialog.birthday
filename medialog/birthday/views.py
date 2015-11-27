@@ -58,7 +58,7 @@ class Birthday(BrowserView):
         csv_reader = csv.reader(file.splitlines(), encoding='latin-1', delimiter=';' )
         bursdager = []
         start= '01.01'
-        end = '31.12'
+        end = '12.12'
         
         if 'start' in self.request:
             start = self.request.get('start')
@@ -66,6 +66,7 @@ class Birthday(BrowserView):
         if 'end' in self.request:
             end = self.request.get('end')
             
+        
         st = datetime.strptime(start, "%d.%m")
         en = datetime.strptime(end, "%d.%m")
                     
@@ -78,7 +79,7 @@ class Birthday(BrowserView):
             if st <= mydate  <= en:
                 bursdager.append(i)
         
-            return bursdager
+        return bursdager
                 
 
     def has_birthday(self, dato=None):
