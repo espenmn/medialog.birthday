@@ -66,8 +66,6 @@ class Birthday(BrowserView):
         if 'end' in self.request:
             end = self.request.get('end')
             
-        import pdb; pdb.set_trace()
-        
         st = datetime.strptime(start, "%d.%m")
         en = datetime.strptime(end, "%d.%m")
                     
