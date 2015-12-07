@@ -14,7 +14,7 @@
   <metal:content-core define-macro="content-core" tal:condition="has_birthday" >
 	<div id="today">
 		<h1 class="red">Gratulerer med dagen - <span tal:content="view/date" /></h1>
-<p tal:content="has_birthday" />
+<p tal:content="has_birthday[0]" />
 		<div tal:repeat="elev python:has_birthday[0]" class="elev">
 			<img src="" tal:attributes="src python:elev[3].lower()"
 				tal:condition="python: elev[3] != ''" 
