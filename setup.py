@@ -30,6 +30,7 @@ setup(name='medialog.birthday',
       zip_safe=False,
       install_requires=[
       	'unicodecsv',
+      	'dm.zopepatches.security',
           # -*- Extra requirements: -*-
       ],
       entry_points="""
