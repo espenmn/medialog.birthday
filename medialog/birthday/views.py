@@ -61,7 +61,7 @@ class Birthday(BrowserView):
         
     def birthday_between(self, start=None, end=None):
     
-        context = setup_proxy_roles((Manager))
+        context = setup_proxy_roles(('Manager'))
         
         try:
 
@@ -99,7 +99,7 @@ class Birthday(BrowserView):
 
         daymonth = self.date()
         
-        context = setup_proxy_roles((Manager))
+        context = setup_proxy_roles(('Manager'))
         
         try:
             # Read the CSV file
