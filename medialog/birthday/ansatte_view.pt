@@ -29,7 +29,28 @@
                     </tr>
                 </thead>
                 
-                <div tal:content="teachers" />
+                <tbody>
+                    <tal:repeat tal:repeat="item teachers">
+                    <tr>
+                         <td class="image_cell">
+                            <img   src="" alt=""
+                                       tal:attributes="src string:${item[0]}/@@images/image/tile" /></td>
+                               <td class="text_cell name">
+                           <p tal:content="item[0]" />
+                           <p class="kortnavn" tal:content="item[0]" />
+                           </td>
+                         <td class="text_cell kategori" tal:content="item[0]" />
+                          <td class="text_cell kontaktlaerer" tal:content="item[0]" />
+                         <td class="text_cell" tal:content="iitem[0]" />
+
+                         <td class="text_cell">
+      						<a href="" tal:define="mailto python:'mailto: ' + item[0]" 
+      							tal:attributes="href mailto"  
+      							tal:content="item[0]" />
+						</td>
+                      </tr>
+                   </tal:repeat>
+                </tbody>
 
 				
 

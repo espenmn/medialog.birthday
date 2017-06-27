@@ -152,7 +152,6 @@ class Teachers(BrowserView):
         context = setup_proxy_roles(('Manager'))
         
         ansattelist = []
-        something = []
         
         try:
 
@@ -163,7 +162,7 @@ class Teachers(BrowserView):
             for i in csv_reader: 
                 ansattelist.append(i)
         
-            return ansattelist, something
+            return ansattelist
         
         finally:
             cleanup_proxy_roles(context)
