@@ -66,7 +66,7 @@
 
   <browser:page
       for="*"
-      name="ansatte_view"
+      name="ansatteview"
       class="medialog.birthday.views.Teachers"
       template="ansatte_view.pt"
       layer="medialog.birthday.interfaces.IBirthdayLayer"
@@ -75,7 +75,7 @@
 
   <browser:page
       for="*"
-      name="ansatte_feed"
+      name="ansattefeed"
       class="medialog.birthday.views.Teachers"
       template="ansatte_feed.pt"
       layer="medialog.birthday.interfaces.IBirthdayLayer"
