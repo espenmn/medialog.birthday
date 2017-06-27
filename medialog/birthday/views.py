@@ -158,11 +158,10 @@ class Teachers(BrowserView):
         
         try:
 
-            f = StringIO.StringIO(self.context.ansatte)
+            f = StringIO.StringIO((self.context.ansatte))
             file = f.read()
             csv_reader = csv.reader(file.splitlines(), encoding='latin-1', delimiter=';' )
             
-            import pdb; pdb.set_trace()
             for i in csv_reader: 
                 ansattelist.append(i)
         
