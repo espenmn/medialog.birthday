@@ -18,8 +18,14 @@ from dm.zopepatches.security.proxy import cleanup_proxy_roles
 
 class IBirthday(Interface):
     """
-    view interface
+    view interface """
+
+
+
+class IAnsatte(Interface):
     """
+    view interface
+        """
 
 class Birthday(BrowserView):
     """
@@ -135,4 +141,33 @@ class Birthday(BrowserView):
         
         finally:
             cleanup_proxy_roles(context)
+            
+            
+class Ansatte(BrowserView):
+    """
+    browser view
+    """
+    
+    def ansatte(self):
+    	"get all teachers from csv file"
+    	
+    	context = setup_proxy_roles(('Manager'))
+        
+        ansattelist = []
+        
+        try:
+
+            f = StringIO.StringIO((self.context.ansatte))
+            file = f.read()
+            csv_reader = csv.reader(file.splitlines(), encoding='latin-1', delimiter=';' )
+            
+            import pdb; pdb.set_trace()
+            for i in csv_reader: 
+                ansattelist.append(i)
+        
+            return ansattelist
+        
+        finally:
+            cleanup_proxy_roles(context)
+
 

@@ -1,0 +1,75 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="plone">
+
+<body>
+
+<metal:main fill-slot="content-core" tal:define="ansatte view/ansatte">
+	
+  <metal:content-core define-macro="content-core" tal:condition="ansatte" >
+ 
+  <table class="listing"
+                   summary="Content listing"
+                   i18n:attributes="summary summary_content_listing;">
+                <thead>
+                    <tr>
+                        <th class="nosort"> </th>
+                        <th class="sort">&nbsp;<tal:title  
+                          >Navn</tal:title>&nbsp;</th>
+                        <th class="sort">Stilling</th>
+                        <th class="sort">Kontaktlærer</th>
+                        <th class="sort">Rom</th>
+                        <th class="sort">E-post</th>
+
+
+                    </tr>
+                </thead>
+                
+                <div tal:content="ansatte" />
+
+                <!--tbody>
+                    <tal:repeat tal:repeat="item ansatte">
+                    <tr>
+                         <td class="image_cell">
+                            <img   src="" alt=""
+                                       tal:attributes="src string:${filnavn}/@@images/image/tile" /></td>
+                               <td class="text_cell name">
+                           <p tal:content="item/navn" />
+                           <p class="kortnavn" tal:content="item/kortnavn" />
+                           </td>
+                         <td class="text_cell kategori" tal:content="item/kategori" />
+                          <td class="text_cell kontaktlaerer" tal:content="item/kontaktlaerer" />
+                         <td class="text_cell" tal:content="item/romnr" />
+
+                         <td class="text_cell">
+      						<a href="" tal:define="mailto python:'mailto: ' + item.e_post" 
+      							tal:attributes="href mailto"  
+      							tal:content="item/e_post" />
+						</td>
+                      </tr>
+                   </tal:repeat>
+                </tbody-->
+            </table>
+
+     <script src="jquery.filtertable.js"></script>
+
+     <script>
+       $('table').filterTable(); //if this code appears after your tables; otherwise, include it in your document.ready() code.
+     </script>
+ 
+  </metal:content-core>
+  
+
+
+</metal:main>
+
+</body>
+</html>
+
+
+
+ 
