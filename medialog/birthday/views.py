@@ -22,7 +22,7 @@ class IBirthday(Interface):
 
 
 
-class IAnsatte(Interface):
+class ITeachers(Interface):
     """
     view interface
         """
@@ -105,7 +105,7 @@ class Birthday(BrowserView):
 
         daymonth = self.date()
         
-        context = setup_proxy_roles(('Manager'))
+        #context = setup_proxy_roles(('Manager'))
         
         try:
             # Read the CSV file
@@ -143,21 +143,22 @@ class Birthday(BrowserView):
             cleanup_proxy_roles(context)
             
             
-class Ansatte(BrowserView):
+class Teachers(BrowserView):
     """
     browser view
     """
     
-    def tilsatte(self):
+    def teachers(self):
     	"get all teachers from csv file"
     	
     	context = setup_proxy_roles(('Manager'))
         
         ansattelist = []
+        something = []
         
         try:
 
-            f = StringIO.StringIO((self.context.bursdag))
+            f = StringIO.StringIO(self.context.ansatte)
             file = f.read()
             csv_reader = csv.reader(file.splitlines(), encoding='latin-1', delimiter=';' )
             
@@ -165,7 +166,7 @@ class Ansatte(BrowserView):
             for i in csv_reader: 
                 ansattelist.append(i)
         
-            return ansattelist
+            return ansattelist, something
         
         finally:
             cleanup_proxy_roles(context)

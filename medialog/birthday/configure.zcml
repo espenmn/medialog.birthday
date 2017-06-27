@@ -66,8 +66,8 @@
 
   <browser:page
       for="*"
-      name="xansatte_view"
-      class="medialog.birthday.views.Ansatte"
+      name="ansatte_view"
+      class="medialog.birthday.views.Teachers"
       template="ansatte_view.pt"
       layer="medialog.birthday.interfaces.IBirthdayLayer"
       permission="zope.Public"
@@ -75,8 +75,8 @@
 
   <browser:page
       for="*"
-      name="xansatte_feed"
-      class="medialog.birthday.views.Ansatte"
+      name="ansatte_feed"
+      class="medialog.birthday.views.Teachers"
       template="ansatte_feed.pt"
       layer="medialog.birthday.interfaces.IBirthdayLayer"
       permission="zope.Public"
