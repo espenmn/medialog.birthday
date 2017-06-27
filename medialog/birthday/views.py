@@ -137,6 +137,8 @@ class Birthday(BrowserView):
         finally:
             cleanup_proxy_roles(context)
             
+
+            
             
 class Teachers(BrowserView):
     """
