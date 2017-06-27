@@ -157,7 +157,7 @@ class Ansatte(BrowserView):
         
         try:
 
-            f = StringIO.StringIO((self.context.ansatte))
+            f = StringIO.StringIO((self.context.bursdag))
             file = f.read()
             csv_reader = csv.reader(file.splitlines(), encoding='latin-1', delimiter=';' )
             
