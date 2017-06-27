@@ -148,7 +148,7 @@ class Ansatte(BrowserView):
     browser view
     """
     
-    def ansatte(self):
+    def tilsatte(self):
     	"get all teachers from csv file"
     	
     	context = setup_proxy_roles(('Manager'))
