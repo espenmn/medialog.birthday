@@ -149,8 +149,6 @@ class Teachers(BrowserView):
     """
     
     def teachers(self):
-        "get all teachers from csv file"
-        
         context = setup_proxy_roles(('Manager'))
         
         ansattelist = []
