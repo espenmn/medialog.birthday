@@ -22,6 +22,11 @@ class IBirthday(Interface):
 
 
 
+class ITeachers(Interface):
+    """
+    view interface
+        """
+
 class Birthday(BrowserView):
     """
     browser view
@@ -137,51 +142,30 @@ class Birthday(BrowserView):
         finally:
             cleanup_proxy_roles(context)
             
-
-            
             
 class Teachers(BrowserView):
     """
     browser view
     """
     
-    def teachers(self, dato=None):
-
-        daymonth = self.date()
+    def teachers(self):
+        "get all teachers from csv file"
         
-        #context = setup_proxy_roles(('Manager'))
+        context = setup_proxy_roles(('Manager'))
+        
+        ansattelist = []
+        something = []
         
         try:
-            # Read the CSV file
-            f = StringIO.StringIO((self.context.bursdag))
+
+            f = StringIO.StringIO((self.context.ansatte))
             file = f.read()
             csv_reader = csv.reader(file.splitlines(), encoding='latin-1', delimiter=';' )
-            bursdager = []
-            saturday = []
-            sunday = []
-        
-            if 'dato' in self.request:
-                daymonth = self.request.get('dato')
             
-                for i in csv_reader: 
-                    if i[4][0:5] == daymonth:
-                        bursdager.append(i)
-        
-                return bursdager, saturday, sunday
-                
-        
             for i in csv_reader: 
-                if i[4][0:5] == daymonth:
-                    bursdager.append(i)
+                ansattelist.append(i)
         
-                if self.friday():
-                    if i[4][0:5] == self.tomorrow():
-                        saturday.append(i)
-                    if i[4][0:5] == self.aftertomorrow():
-                        sunday.append(i)
-
-        
-            return bursdager, saturday, sunday
+            return ansattelist, something
         
         finally:
             cleanup_proxy_roles(context)
