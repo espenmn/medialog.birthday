@@ -59,7 +59,9 @@
      <script src="jquery.filtertable.js"></script>
 
      <script>
+     $( document ).ready(function() {
        $('table').filterTable(); //if this code appears after your tables; otherwise, include it in your document.ready() code.
+     });
      </script>
  
   </metal:content-core>
