@@ -12,7 +12,7 @@
 	
   <metal:content-core define-macro="content-core" tal:define="teachers view/teachers" >
  
-  <table class="listing"
+  <table class="listing filterme"
                    summary="Content listing"
                    i18n:attributes="summary summary_content_listing;">
                 <thead>
@@ -60,7 +60,7 @@
 
      <script>
      $( document ).ready(function() {
-       $('table').filterTable(); //if this code appears after your tables; otherwise, include it in your document.ready() code.
+       $('.filterme').filterTable(); //if this code appears after your tables; otherwise, include it in your document.ready() code.
      });
      </script>
  
