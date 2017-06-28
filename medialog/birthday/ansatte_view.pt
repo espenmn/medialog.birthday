@@ -8,9 +8,9 @@
 
 <body>
 
-<metal:main fill-slot="content" >
+<metal:main fill-slot="content-core" >
 	
-  <metal:content-core define-macro="content" tal:define="teachers view/teachers" >
+  <metal:content-core define-macro="content-core" tal:define="teachers view/teachers" >
  
   <table class="listing"
                    summary="Content listing"

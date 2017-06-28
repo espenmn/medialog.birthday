@@ -56,8 +56,6 @@
 
             </table>
 
-     <script src="jquery.filtertable.js"></script>
-
      <script>
        $('table').filterTable(); //if this code appears after your tables; otherwise, include it in your document.ready() code.
      </script>
