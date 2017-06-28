@@ -8,9 +8,9 @@
 
 <body>
 
-<metal:main fill-slot="content-core" tal:define="teachers view/teachers">
+<metal:main fill-slot="content-core" >
 	
-  <metal:content-core define-macro="content-core" tal:condition="teachers" >
+  <metal:content-core define-macro="content-core" tal:define="teachers view/teachers" >
  
   <table class="listing"
                    summary="Content listing"
@@ -29,30 +29,31 @@
                     </tr>
                 </thead>
                 
-                <div tal:content="ansatte" />
-
                 <tbody>
                     <tal:repeat tal:repeat="item teachers">
                     <tr>
-                         <td class="image_cell">
+                         <td class="image_cell" tal:define="imgpath python: item[0]">
                             <img   src="" alt=""
-                                       tal:attributes="src string:${filnavn}/@@images/image/tile" /></td>
+                                       tal:attributes="src string:${imgpath}/@@images/image/tile" /></td>
                                <td class="text_cell name">
-                           <p tal:content="item/navn" />
-                           <p class="kortnavn" tal:content="item/kortnavn" />
+                           <p> <span tal:content="python: item[1]" /> <span tal:content="python: item[2]"/></p>
+                           <p class="kortnavn" tal:content="python: item[2]" />
                            </td>
-                         <td class="text_cell kategori" tal:content="item/kategori" />
-                          <td class="text_cell kontaktlaerer" tal:content="item/kontaktlaerer" />
-                         <td class="text_cell" tal:content="item/romnr" />
+                         <td class="text_cell kategori" tal:content="python: item[3]" />
+                          <td class="text_cell kontaktlaerer" tal:content="python: item[4]" />
+                         <td class="text_cell" tal:content="python: item[5]" />
 
                          <td class="text_cell">
-      						<a href="" tal:define="mailto python:'mailto: ' + item.e_post" 
+      						<a href="" tal:define="mailto python:'mailto: ' + item[6]" 
       							tal:attributes="href mailto"  
-      							tal:content="item/e_post" />
+      							tal:content="python: item[6]" />
 						</td>
                       </tr>
                    </tal:repeat>
                 </tbody>
+
+				
+
             </table>
 
      <script src="jquery.filtertable.js"></script>
