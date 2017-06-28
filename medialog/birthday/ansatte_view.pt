@@ -56,7 +56,7 @@
 
             </table>
 </div>
-     <script src="jquery.filtertable.js"></script>
+ 
 
      <script>
      $( document ).ready(function() {
