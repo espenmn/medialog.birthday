@@ -160,7 +160,8 @@ class Teachers(BrowserView):
             csv_reader = csv.reader(file.splitlines(), encoding='latin-1', delimiter=';' )
             
             for i in csv_reader: 
-                ansattelist.append(i)
+                if not "ornavn" in i:
+                    ansattelist.append(i)
         
             return ansattelist
         

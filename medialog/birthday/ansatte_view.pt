@@ -36,17 +36,17 @@
                             <img   src="" alt=""
                                        tal:attributes="src string:${imgpath}/@@images/image/tile" /></td>
                                <td class="text_cell name">
-                           <p tal:content="python: item[1]" />
+                           <p> <span tal:content="python: item[1]" /> <span tal:content="python: item[2]"/></p>
                            <p class="kortnavn" tal:content="python: item[2]" />
                            </td>
                          <td class="text_cell kategori" tal:content="python: item[3]" />
                           <td class="text_cell kontaktlaerer" tal:content="python: item[4]" />
-                         <td class="text_cell" tal:content="python: item[0]" />
+                         <td class="text_cell" tal:content="python: item[5]" />
 
                          <td class="text_cell">
-      						<a href="" tal:define="mailto python:'mailto: ' + item[0]" 
+      						<a href="" tal:define="mailto python:'mailto: ' + item[6]" 
       							tal:attributes="href mailto"  
-      							tal:content="python: item[0]" />
+      							tal:content="python: item[6]" />
 						</td>
                       </tr>
                    </tal:repeat>
