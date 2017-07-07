@@ -157,7 +157,7 @@ class Teachers(BrowserView):
 
             f = StringIO.StringIO((self.context.ansatte))
             file = f.read()
-            csv_reader = csv.reader(file.splitlines(), encoding='us-ascii', delimiter=';' )
+            csv_reader = csv.reader(file.splitlines(), encoding='ISO-8859-1', delimiter=';' )
             
             for i in csv_reader: 
                 if not "ornavn" in i[1]:
